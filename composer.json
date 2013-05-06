@@ -1,6 +1,7 @@
 {
     "name": "ftdebugger/react-zf2",
     "description": "Example of usage Zend Framework 2 and React PHP",
+    "license": "MIT",
     "minimum-stability": "dev",
     "authors": [
         {

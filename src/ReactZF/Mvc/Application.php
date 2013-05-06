@@ -15,7 +15,6 @@ use Zend\Mvc\Application as ZendApplication;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\ArrayUtils;
 
 class Application extends ZendApplication
 {
@@ -24,7 +23,6 @@ class Application extends ZendApplication
      * @var ApplicationConfig
      */
     protected $config;
-
 
     /**
      * @param array $configuration

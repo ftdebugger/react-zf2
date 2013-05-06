@@ -7,7 +7,6 @@
 
 namespace ReactZF\Mvc;
 
-
 use Zend\Stdlib\AbstractOptions;
 
 class ApplicationConfig extends AbstractOptions
@@ -62,6 +61,5 @@ class ApplicationConfig extends AbstractOptions
     {
         return $this->port;
     }
-
 
 }

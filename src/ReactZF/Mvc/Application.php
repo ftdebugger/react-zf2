@@ -15,25 +15,16 @@ use Zend\Mvc\Application as ZendApplication;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
+use Zend\Stdlib\ArrayUtils;
 
 class Application extends ZendApplication
 {
 
     /**
-     * Constructor
-     *
-     * @param mixed          $configuration
-     * @param ServiceManager $serviceManager
+     * @var ApplicationConfig
      */
-    public function __construct($configuration, ServiceManager $serviceManager)
-    {
-        $this->configuration = $configuration;
-        $this->serviceManager = $serviceManager;
+    protected $config;
 
-        $this->setEventManager($serviceManager->get('EventManager'));
-        $this->request = new Request();
-        $this->response = new Response();
-    }
 
     /**
      * @param array $configuration
@@ -61,6 +52,24 @@ class Application extends ZendApplication
     }
 
     /**
+     * Constructor
+     *
+     * @param array          $configuration
+     * @param ServiceManager $serviceManager
+     */
+    public function __construct($configuration, ServiceManager $serviceManager)
+    {
+        $this->configuration = $configuration;
+        $this->serviceManager = $serviceManager;
+
+        $this->setEventManager($serviceManager->get('EventManager'));
+        $this->request = new Request();
+        $this->response = new Response();
+
+        $this->config = new ApplicationConfig(isset($configuration['react-zf']) ? $configuration['react-zf'] : []);
+    }
+
+    /**
      * @return void|\Zend\Stdlib\ResponseInterface
      */
     public function run()
@@ -72,7 +81,7 @@ class Application extends ZendApplication
         $this->getEventManager()->attach(MvcEvent::EVENT_FINISH, [$this, 'renderRequest'], -1000);
 
         $http->on('request', [$this, 'processRequest']);
-        $socket->listen(1337);
+        $socket->listen($this->config->getPort(), $this->config->getHost());
         $loop->run();
     }
 
@@ -82,7 +91,6 @@ class Application extends ZendApplication
      */
     public function processRequest($request, $response)
     {
-        $time = microtime(true);
         $this->request = new Request();
         $this->request->setReactRequest($request);
 
@@ -96,11 +104,12 @@ class Application extends ZendApplication
         $this->getServiceManager()->setService('Response', $this->response);
         $this->getServiceManager()->setAllowOverride($allow);
 
-        $this->getMvcEvent()->setRequest($this->request);
-        $this->getMvcEvent()->setResponse($this->response);
+        $event = $this->getMvcEvent();
+        $event->setError(null);
+        $event->setRequest($this->getRequest());
+        $event->setResponse($this->getResponse());
 
         parent::run();
-        var_dump(microtime(true) - $time);
     }
 
     /**

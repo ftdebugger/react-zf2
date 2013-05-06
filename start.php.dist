@@ -1,0 +1,7 @@
+<?php
+
+chdir(__DIR__);
+
+include_once __DIR__ . "/vendor/autoload.php";
+
+\ReactZF\Mvc\Application::init(require 'config/application.config.php')->run();

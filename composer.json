@@ -1,0 +1,20 @@
+{
+    "name": "ftdebugger/react-zf2",
+    "description": "Example of usage Zend Framework 2 and React PHP",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Evgeny Shpilevsky",
+            "email": "evgeny@shpilevsky.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "ReactZF": "src"
+        }
+    },
+    "require": {
+        "zendframework/zendframework": "2.1.5",
+        "react/react": "0.4.x-dev"
+    }
+}

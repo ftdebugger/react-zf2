@@ -20,5 +20,29 @@ Append ReactZF module to `config/application.config.php`, then type in console
 
 ```BASH
 php -f public/index.php react start
+```
 
+## Configuration
+
+```PHP
+return array(
+    'ReactZF' => array(
+        'servers' => array(
+            // You can rewrite default server options
+            'default' => array(
+                'port' => 1337,
+                'host' => '127.0.0.1'
+            )
+
+            // Or specify your own
+            'some-server-name-you-like' => array(
+                'port' => 1338,
+
+                // optional, use 127.0.0.1 as default
+                'host' => '192.168.0.117'
+            ),
+            ..
+        )
+    )
+);
 ```

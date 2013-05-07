@@ -53,7 +53,8 @@ class Module implements
     {
         return array(
             'Run react application',
-            'react start [server]' => '"default" will be used, if no server name specified'
+            'react start --all' => 'run all exists servers',
+            'react start [server]' => 'if no server name specified, "default" will be used',
         );
     }
 

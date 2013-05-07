@@ -23,8 +23,9 @@ class IndexController extends AbstractActionController
      */
     public function startAction()
     {
+        $name = $this->getRequest()->getParam('server', 'default');
         $manager = $this->getApplicationManager();
-        $manager->createServer()->run();
+        $manager->createServer($name)->run();
     }
 
     /**

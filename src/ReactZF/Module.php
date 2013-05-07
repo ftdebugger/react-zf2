@@ -52,7 +52,8 @@ class Module implements
     public function getConsoleUsage(AdapterInterface $console)
     {
         return array(
-            'react start' => 'run application at default server, specified in config'
+            'Run react application',
+            'react start [server]' => '"default" will be used, if no server name specified'
         );
     }
 

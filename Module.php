@@ -1,3 +1,3 @@
 <?php
 
-require "src/ReactZF/Module.php";
+require __DIR__ . "/src/ReactZF/Module.php";

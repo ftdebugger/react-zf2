@@ -22,10 +22,6 @@ Create file at the root of project and write something like this
 
 <?php
 
-chdir(__DIR__);
-
-include_once __DIR__ . "/vendor/autoload.php";
-
-\ReactZF\Mvc\Application::init(require 'config/application.config.php')->run();
+php -f public/index.php react start
 
 ```

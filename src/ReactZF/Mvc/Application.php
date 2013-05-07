@@ -1,7 +1,7 @@
 <?php
 /**
  * @author     Evgeny Shpilevsky <evgeny@shpilevsky.com>
- * @license    LICENSE.txt
+ * @license    MIT
  * @date       5/4/13 12:44
  */
 
@@ -20,34 +20,9 @@ class Application extends ZendApplication
 {
 
     /**
-     * @var ApplicationConfig
+     * @var ApplicationOptions
      */
-    protected $config;
-
-    /**
-     * @param array $configuration
-     *
-     * @return ZendApplication
-     */
-    public static function init($configuration = array())
-    {
-        Console::overrideIsConsole(false);
-
-        $smConfig = isset($configuration['service_manager']) ? $configuration['service_manager'] : array();
-
-        $serviceManager = new ServiceManager(new ServiceManagerConfig($smConfig));
-        $serviceManager->setService('ApplicationConfig', $configuration);
-        $serviceManager->get('ModuleManager')->loadModules();
-
-        $application = (new Application($configuration, $serviceManager));
-        $allow = $serviceManager->getAllowOverride();
-
-        $serviceManager->setAllowOverride(true);
-        $serviceManager->setService('application', $application);
-        $serviceManager->setAllowOverride($allow);
-
-        return $application->bootstrap();
-    }
+    protected $serverOptions;
 
     /**
      * Constructor
@@ -63,8 +38,6 @@ class Application extends ZendApplication
         $this->setEventManager($serviceManager->get('EventManager'));
         $this->request = new Request();
         $this->response = new Response();
-
-        $this->config = new ApplicationConfig(isset($configuration['react-zf']) ? $configuration['react-zf'] : []);
     }
 
     /**
@@ -79,7 +52,7 @@ class Application extends ZendApplication
         $this->getEventManager()->attach(MvcEvent::EVENT_FINISH, [$this, 'renderRequest'], -1000);
 
         $http->on('request', [$this, 'processRequest']);
-        $socket->listen($this->config->getPort(), $this->config->getHost());
+        $socket->listen($this->serverOptions->getPort(), $this->serverOptions->getHost());
         $loop->run();
     }
 
@@ -119,6 +92,26 @@ class Application extends ZendApplication
         $zendResponse = $event->getResponse();
         $zendResponse->send();
         $event->stopPropagation();
+    }
+
+    /**
+     * Set value of Options
+     *
+     * @param \ReactZF\Mvc\ApplicationOptions $options
+     */
+    public function setServerOptions($options)
+    {
+        $this->serverOptions = $options;
+    }
+
+    /**
+     * Return value of Options
+     *
+     * @return \ReactZF\Mvc\ApplicationOptions
+     */
+    public function getServerOptions()
+    {
+        return $this->serverOptions;
     }
 
 }

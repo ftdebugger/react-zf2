@@ -1,7 +1,7 @@
 <?php
 /**
- * @author     Evgeny Shpilevsky <evgeny.shpilevsky@gmail.com>
- * @license    LICENSE.txt
+ * @author     Evgeny Shpilevsky <evgeny@shpilevsky.com>
+ * @license    MIT
  * @date       5/6/13 15:43
  */
 
@@ -9,7 +9,7 @@ namespace ReactZF\Mvc;
 
 use Zend\Stdlib\AbstractOptions;
 
-class ApplicationConfig extends AbstractOptions
+class ApplicationOptions extends AbstractOptions
 {
 
     /**

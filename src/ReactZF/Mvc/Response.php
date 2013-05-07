@@ -1,7 +1,7 @@
 <?php
 /**
  * @author     Evgeny Shpilevsky <evgeny@shpilevsky.com>
- * @license    LICENSE.txt
+ * @license    MIT
  * @date       5/4/13 21:43
  */
 

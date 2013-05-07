@@ -8,6 +8,7 @@ namespace ReactZF\Service;
 
 use ReactZF\Mvc\Application;
 use Zend\Console\Console;
+use Zend\Console\Request;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 
@@ -62,6 +63,28 @@ class ApplicationManager
         $serviceManager->setAllowOverride($allow);
 
         return $application->bootstrap();
+    }
+
+    /**
+     * Execute all servers
+     *
+     * @param Request $request
+     */
+    public function runAll(Request $request)
+    {
+        foreach ($this->options->getServers() as $name => $server) {
+            $command = [];
+
+            $command[] = 'php';
+            $command[] = '-f';
+            $command[] = escapeshellarg($request->getScriptName());
+            $command[] = 'react';
+            $command[] = 'start';
+            $command[] = escapeshellarg($name);
+            $command[] = '>/dev/null 2>/dev/null &';
+
+            system(implode(" ", $command));
+        }
     }
 
 }

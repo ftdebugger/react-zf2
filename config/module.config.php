@@ -22,7 +22,7 @@ return array(
             'routes' => array(
                 'react-zf-start' => array(
                     'options' => array(
-                        'route' => 'react start [<server>]',
+                        'route' => 'react start [--all] [<server>]',
                         'defaults' => array(
                             'controller' => 'react-zf-index',
                             'action' => 'start'

@@ -19,10 +19,13 @@ The recommended way to install is [through composer](http://getcomposer.org).
 Append ReactZF module to `config/application.config.php`, then type in console
 
 ```BASH
+# start default server at http://localhost:1337/
 php -f public/index.php react start
 ```
 
 ## Configuration
+
+Add configuration to your `config/autoload/*`
 
 ```PHP
 return array(
@@ -38,7 +41,7 @@ return array(
             'some-server-name-you-like' => array(
                 'port' => 1338,
 
-                // optional, use 127.0.0.1 as default
+                // optional, react use 127.0.0.1 as default
                 'host' => '192.168.0.117'
             ),
             ..

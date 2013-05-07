@@ -26,7 +26,7 @@ class ApplicationManager
 
     /**
      * @param ApplicationManagerOptions $options
-     * @param array $configuration
+     * @param array                     $configuration
      */
     public function __construct(ApplicationManagerOptions $options, array $configuration)
     {

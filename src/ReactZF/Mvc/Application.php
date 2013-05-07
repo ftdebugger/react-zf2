@@ -10,10 +10,8 @@ namespace ReactZF\Mvc;
 use React\EventLoop\Factory;
 use React\Http\Server as HttpServer;
 use React\Socket\Server as SocketServer;
-use Zend\Console\Console;
 use Zend\Mvc\Application as ZendApplication;
 use Zend\Mvc\MvcEvent;
-use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 
 class Application extends ZendApplication

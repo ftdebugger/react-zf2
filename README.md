@@ -4,7 +4,7 @@ Example of usage [zend framework 2](https://github.com/zendframework/zf2) and [r
 
 ## Install
 
-The recommended way to install react is [through composer](http://getcomposer.org).
+The recommended way to install is [through composer](http://getcomposer.org).
 
 ```JSON
 {
@@ -16,12 +16,9 @@ The recommended way to install react is [through composer](http://getcomposer.or
 
 ## Usage
 
-Create file at the root of project and write something like this
+Append ReactZF module to `config/application.config.php`, then type in console
 
-```PHP
-
-<?php
-
+```BASH
 php -f public/index.php react start
 
 ```

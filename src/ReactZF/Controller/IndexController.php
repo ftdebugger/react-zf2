@@ -43,6 +43,7 @@ class IndexController extends AbstractActionController
         if (!$this->applicationManager) {
             $this->applicationManager = $this->getServiceLocator()->get('ReactZFApplicationManager');
         }
+
         return $this->applicationManager;
     }
 

@@ -1,6 +1,6 @@
 # Zend Framework 2 and React PHP
 
-Example of usage [zend framework 2](https://github.com/zendframework/zf2) and [react php](https://github.com/reactphp/react)
+Integration of [zend framework 2](https://github.com/zendframework/zf2) and [react php](https://github.com/reactphp/react)
 
 ## Install
 
@@ -22,6 +22,8 @@ Append ReactZF module to `config/application.config.php`, then type in console
 # start default server at http://localhost:1337/
 php -f public/index.php react start
 ```
+
+Open [http://localhost:1337/](http://localhost:1337/).
 
 ## Configuration
 

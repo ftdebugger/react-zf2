@@ -9,6 +9,7 @@ namespace ReactZF\Mvc;
 
 use \Zend\Http\PhpEnvironment\Request as ZendRequest;
 use \React\Http\Request as ReactRequest;
+use Zend\Stdlib\Parameters;
 
 class Request extends ZendRequest
 {
@@ -27,6 +28,9 @@ class Request extends ZendRequest
     {
         $this->reactRequest = $reactRequest;
         $this->setUri($reactRequest->getPath());
+        $this->getHeaders()->addHeaders($reactRequest->getHeaders());
+        $this->setMethod($reactRequest->getMethod());
+        $this->setQuery(new Parameters($reactRequest->getQuery()));
     }
 
     /**

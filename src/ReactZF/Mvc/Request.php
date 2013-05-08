@@ -34,6 +34,21 @@ class Request extends ZendRequest
     }
 
     /**
+     * @param string $value
+     *
+     * @return \Zend\Stdlib\Message
+     */
+    public function setContent($value)
+    {
+        parse_str($value, $arr);
+        if (is_array($arr)) {
+            $this->setPost(new Parameters($arr));
+        }
+
+        return parent::setContent($value);
+    }
+
+    /**
      * Return value of ReactRequest
      *
      * @return \React\Http\Request

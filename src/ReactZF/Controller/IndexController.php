@@ -29,7 +29,7 @@ class IndexController extends AbstractActionController
             $manager->runAll($this->getRequest());
         } else {
             $name = $this->params()->fromRoute('server', 'default');
-            $manager->createServer($name)->run();
+            $manager->createServer($name)->loop();
         }
     }
 

@@ -39,9 +39,9 @@ class Application extends ZendApplication
     }
 
     /**
-     * @return void|\Zend\Stdlib\ResponseInterface
+     * @return void
      */
-    public function run()
+    public function loop()
     {
         $loop = Factory::create();
         $socket = new SocketServer($loop);
@@ -60,25 +60,30 @@ class Application extends ZendApplication
      */
     public function processRequest($request, $response)
     {
-        $this->request = new Request();
-        $this->request->setReactRequest($request);
+        $request->on(
+            'data', function ($dataBuffer) use($request, $response) {
+                $this->request = new Request();
+                $this->request->setContent($dataBuffer);
+                $this->request->setReactRequest($request);
 
-        $this->response = new Response();
-        $this->response->setReactResponse($response);
+                $this->response = new Response();
+                $this->response->setReactResponse($response);
 
-        $allow = $this->getServiceManager()->getAllowOverride();
+                $allow = $this->getServiceManager()->getAllowOverride();
 
-        $this->getServiceManager()->setAllowOverride(true);
-        $this->getServiceManager()->setService('Request', $this->request);
-        $this->getServiceManager()->setService('Response', $this->response);
-        $this->getServiceManager()->setAllowOverride($allow);
+                $this->getServiceManager()->setAllowOverride(true);
+                $this->getServiceManager()->setService('Request', $this->request);
+                $this->getServiceManager()->setService('Response', $this->response);
+                $this->getServiceManager()->setAllowOverride($allow);
 
-        $event = $this->getMvcEvent();
-        $event->setError(null);
-        $event->setRequest($this->getRequest());
-        $event->setResponse($this->getResponse());
+                $event = $this->getMvcEvent();
+                $event->setError(null);
+                $event->setRequest($this->getRequest());
+                $event->setResponse($this->getResponse());
 
-        parent::run();
+                $this->run();
+            }
+        );
     }
 
     /**

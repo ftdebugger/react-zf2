@@ -39,7 +39,7 @@ class ApplicationManager
      *
      * @param string $name
      *
-     * @return \Zend\Mvc\Application
+     * @return \ReactZF\Mvc\Application
      */
     public function createServer($name = 'default')
     {

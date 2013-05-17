@@ -2,7 +2,7 @@
     "name": "ftdebugger/react-zf2",
     "description": "Module for integration Zend Framework 2 and React PHP",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Evgeny Shpilevsky",
@@ -17,7 +17,7 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": ">=2.1.5",
-        "react/react": "0.4.x-dev"
+        "react/react": "0.3.*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"

@@ -1,7 +1,7 @@
 Zend Framework 2 and React PHP
 ==============================
 
-[![Build Status](https://travis-ci.org/ftdebugger/react-zf2.png?branch=master)](https://travis-ci.org/ftdebugger/react-zf2)
+[![Build Status](https://travis-ci.org/ftdebugger/react-zf2.png?branch=master)](https://travis-ci.org/ftdebugger/react-zf2)[![Dependency Status](https://www.versioneye.com/user/projects/51960dd0296d61000200f905/badge.png)](https://www.versioneye.com/user/projects/51960dd0296d61000200f905)
 
 Integration of [zend framework 2](https://github.com/zendframework/zf2) and [react php](https://github.com/reactphp/react)
 

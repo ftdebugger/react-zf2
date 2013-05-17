@@ -6,8 +6,13 @@
     "authors": [
         {
             "name": "Evgeny Shpilevsky",
-            "email": "evgeny@shpilevsky.com"
+            "email": "evgeny@shpilevsky.com",
+            "role": "Developer"
         }
+    ],
+    "keywords": [
+        "zend",
+        "react"
     ],
     "autoload": {
         "psr-0": {

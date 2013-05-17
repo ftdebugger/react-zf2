@@ -13,7 +13,7 @@ The recommended way to install is [through composer](http://getcomposer.org).
 ```JSON
 {
     "require": {
-        "ftdebugger/react-zf2": ">=0.1.0"
+        "ftdebugger/react-zf2": "dev-master"
     }
 }
 ```

@@ -1,6 +1,6 @@
 {
     "name": "ftdebugger/react-zf2",
-    "description": "Example of usage Zend Framework 2 and React PHP",
+    "description": "Module for integration Zend Framework 2 and React PHP",
     "license": "MIT",
     "minimum-stability": "dev",
     "authors": [
@@ -15,7 +15,11 @@
         }
     },
     "require": {
-        "zendframework/zendframework": "2.1.5",
+        "php": ">=5.4",
+        "zendframework/zendframework": ">=2.1.5",
         "react/react": "0.4.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
     }
 }

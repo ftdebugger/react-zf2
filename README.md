@@ -1,8 +1,12 @@
-# Zend Framework 2 and React PHP
+Zend Framework 2 and React PHP
+==============================
+
+[![Build Status](https://travis-ci.org/ftdebugger/react-zf2.png?branch=master)](https://travis-ci.org/ftdebugger/react-zf2)
 
 Integration of [zend framework 2](https://github.com/zendframework/zf2) and [react php](https://github.com/reactphp/react)
 
-## Install
+Install
+-------
 
 The recommended way to install is [through composer](http://getcomposer.org).
 
@@ -14,7 +18,8 @@ The recommended way to install is [through composer](http://getcomposer.org).
 }
 ```
 
-## Usage
+Usage
+-----
 
 Append ReactZF module to `config/application.config.php`, then type in console
 
@@ -25,7 +30,8 @@ php -f public/index.php react start
 
 Open [http://localhost:1337/](http://localhost:1337/).
 
-## Configuration
+Configuration
+-------------
 
 Add configuration to your `config/autoload/*`
 

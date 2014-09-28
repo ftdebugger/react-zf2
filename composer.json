@@ -21,7 +21,7 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": ">=2.1.5",
-        "react/react": "0.3.*"
+        "react/react": "0.4.*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
